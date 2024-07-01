@@ -139,12 +139,13 @@ namespace BNG
             //     resetStringPosition();
             //     return;
             // }
-
             holdingArrow = GrabbedArrow != null;
+            //if(!holdingArrow)return;
 
             // Grab an arrow by holding trigger in grab area
-            if (canGrabArrowFromKnock())
+            if (canGrabArrowFromKnock()&&!holdingArrow)
             {
+                //return;
                 GameObject arrow = Instantiate(Resources.Load(ArrowPrefabName, typeof(GameObject))) as GameObject;
                 arrow.transform.position = ArrowKnock.transform.position;
                 arrow.transform.LookAt(getArrowRest());
@@ -183,8 +184,9 @@ namespace BNG
                 checkBowHaptics();
 
                 // Let Go of Trigger, shoot arrow                
-                if (getGrabArrowInput() <= 0.2f)
+                if (getTriggerInput() <= 0.2f)
                 {
+                    //GrabbedArrow=null;
                     ReleaseArrow();
                 }
             }
@@ -239,7 +241,7 @@ namespace BNG
                 // Trigger
                 else if (grabButton == GrabButton.Trigger)
                 {
-                    return getTriggerInput(arrowGrabber.HandSide);
+                    return getTriggerInput();
                 }
             }
 
@@ -260,25 +262,15 @@ namespace BNG
             return 0;
         }
         public EnemyBowSystem enemyBowSystem;
-        float getTriggerInput(ControllerHand handSide)
+        float getTriggerInput()
         {
             print("Drownvalue "+enemyBowSystem.drownValue);
             return enemyBowSystem.drownValue;
-            if (handSide == ControllerHand.Left)
-            {
-                return input.LeftTrigger;
-            }
-            else if (handSide == ControllerHand.Right)
-            {
-                return input.RightTrigger;
-            }
-
-            return 0;
         }
 
         void setKnockPosition()
         {
-
+            return;
             // Set knock to hand if within range
             if (StringDistance <= MaxStringDistance)
             {
@@ -432,7 +424,7 @@ namespace BNG
             GrabbedArrow.ShaftCollider.enabled = false;
 
             arrowGrabbable = arrow.GetComponent<Grabbable>();
-
+            return;
             if (arrowGrabbable)
             {
                 arrowGrabbable.GrabItem(arrowGrabber);
@@ -452,7 +444,7 @@ namespace BNG
 
         public void ReleaseArrow()
         {
-
+            //Debug.Break();
             // Start sound immediately
             playBowRelease();
 
@@ -473,7 +465,7 @@ namespace BNG
             GrabbedArrow.ShootArrow(GrabbedArrow.transform.forward * shotForce);
 
             // Make sure hands are showing if we hid them
-            arrowGrabber.ResetHandGraphics();
+            //arrowGrabber.ResetHandGraphics();
 
             resetArrowValues();
         }
