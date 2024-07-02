@@ -315,8 +315,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656843453}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.054932956, y: 0.92025536, z: -0.13992895, w: 0.36129266}
-  m_LocalPosition: {x: -2.551094, y: 0.99359035, z: 4.4488525}
+  m_LocalRotation: {x: 0.033670977, y: 0.7805052, z: -0.04218455, w: 0.6228149}
+  m_LocalPosition: {x: -2.6216164, y: 1.9905589, z: 3.2088814}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -452,7 +452,7 @@ Transform:
   m_GameObject: {fileID: 828016280}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.065}
+  m_LocalPosition: {x: 0, y: 2.456, z: 4.065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -477,6 +477,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 424642e6a4f0dca4eb06747bb571de01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100030, guid: 424642e6a4f0dca4eb06747bb571de01, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -654,9 +658,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b7c6eab0042144693d3686bfcaede9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDrownOutArrow: 0
-  drownValue: 0
-  isHoldingArrow: 0
   arrowParent: {fileID: 5095859123400783901}
   knockParentConstraint: {fileID: 0}
   holdedArrow: {fileID: 0}

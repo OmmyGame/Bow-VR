@@ -8,29 +8,24 @@ using UnityEngine.InputSystem.Interactions;
 
 public class EnemyStaticBow : MonoBehaviour
 {
-    [Header("inputs")]
-    public bool isDrownOutArrow = false;
-    public float drownValue;
-    public bool isHoldingArrow;
-    [Space(10)]
     public Transform arrowParent;
-    public ParentConstraint knockParentConstraint;
     public Arrow_Custom holdedArrow;
     public Arrow_Custom ArrowPrefab;
     public float shootingForce;
     public Transform target;
-    public Transform aimLocker;
     public GameObject nonFunctionalArrow;
     public StateMachineEventListner stateMachineEventListner;
     public void OnEnable()
     {
-        stateMachineEventListner.onEventInvoke+=OnStateMachineEventInvoke;
+        stateMachineEventListner.onEventInvoke += OnStateMachineEventInvoke;
     }
     public void OnStateMachineEventInvoke(StateMachineEventType stateMachineEventType)
     {
         switch (stateMachineEventType)
         {
             case StateMachineEventType.Release:
+                InstantiateArrow();
+                ShootArrow();
                 nonFunctionalArrow?.SetActive(false);
                 break;
             case StateMachineEventType.Charging:
@@ -42,24 +37,6 @@ public class EnemyStaticBow : MonoBehaviour
     }
     public void Update()
     {
-        //knockParentConstraint.weight=drownValue;
-        if (isHoldingArrow)
-        {
-            InstantiateArrow();
-        }
-        if (!isHoldingArrow)
-        {
-            ShootArrow();
-        }
-        // if(Input.GetKeyDown(KeyCode.I))
-        // {
-        //     InstantiateArrow();
-        // }
-        // if(Input.GetKeyDown(KeyCode.S))
-        // {
-        //     ShootArrow();
-        // }
-        //AimLockers();
         RotateTowardsOpponent();
     }
     public void RotateTowardsOpponent()
@@ -84,15 +61,13 @@ public class EnemyStaticBow : MonoBehaviour
         // Apply the new rotation
         transform.rotation = newRotation;
     }
-    public void AimLockers()
-    {
-        aimLocker.LookAt(target);
-    }
     public void ShootArrow()
     {
         if (holdedArrow != null)
         {
-            holdedArrow.ShootArrow(holdedArrow.transform.forward * shootingForce);
+            Vector3 targetDirection = target.position - transform.position;
+            targetDirection.Normalize();
+            holdedArrow.ShootArrow(targetDirection * shootingForce);
             holdedArrow = null;
         }
     }

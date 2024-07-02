@@ -40,14 +40,12 @@ public class Arrow_Custom : MonoBehaviour
     {
         flightTime = 0f;
         Flying = true;
-
         transform.parent = null;
-
         rb.isKinematic = false;
         //rb.useGravity = true;
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
         rb.constraints = RigidbodyConstraints.None;
-        rb.AddForce(shotForce, ForceMode.VelocityChange);
+        rb.AddForce(transform.forward, ForceMode.VelocityChange);
         StartCoroutine(ReEnableCollider());
     }
     IEnumerator DestroyArrow()

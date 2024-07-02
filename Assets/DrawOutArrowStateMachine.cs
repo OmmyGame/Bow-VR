@@ -31,9 +31,9 @@ public class DrawOutArrowStateMachine : StateMachineBehaviour
       //Debug.Log("ustaad");
     }
 
-    animator.GetComponent<EnemyStaticBow>().isHoldingArrow=isHoldingArrow;
-    animator.GetComponent<EnemyStaticBow>().isDrownOutArrow=isDrownOutArrow;
-    animator.GetComponent<EnemyStaticBow>().drownValue=drownValue;
+    animator.GetComponent<EnemyBowSystem>().isHoldingArrow=isHoldingArrow;
+    animator.GetComponent<EnemyBowSystem>().isDrownOutArrow=isDrownOutArrow;
+    animator.GetComponent<EnemyBowSystem>().drownValue=drownValue;
   }
   public float DrawValue(AnimatorStateInfo stateInfo)
   {
