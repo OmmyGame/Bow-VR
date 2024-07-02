@@ -458,6 +458,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &905597890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100030, guid: 424642e6a4f0dca4eb06747bb571de01,
+    type: 3}
+  m_PrefabInstance: {fileID: 1278679685}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1278679685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -550,6 +556,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1958771617}
+    - targetCorrespondingSourceObject: {fileID: 100080, guid: 424642e6a4f0dca4eb06747bb571de01,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1958771620}
   m_SourcePrefab: {fileID: 100100000, guid: 424642e6a4f0dca4eb06747bb571de01, type: 3}
 --- !u!1 &1648020498
 GameObject:
@@ -655,6 +665,20 @@ MonoBehaviour:
   shootingForce: 10
   target: {fileID: 828016284}
   aimLocker: {fileID: 495986908}
+  nonFunctionalArrow: {fileID: 905597890}
+  stateMachineEventListner: {fileID: 1958771620}
+--- !u!114 &1958771620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958771614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f1aa74a449023478ab6f93ee8f171f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1971433218
 GameObject:
   m_ObjectHideFlags: 0
