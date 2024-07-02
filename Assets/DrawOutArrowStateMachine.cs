@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.Events;
 
 public class DrawOutArrowStateMachine : StateMachineBehaviour
 {
@@ -18,6 +19,7 @@ public class DrawOutArrowStateMachine : StateMachineBehaviour
   public bool isHoldingArrow;
   public float drownValue;
   public Action shootAction;
+  public UnityEvent unityEvent;
   override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
   {
     drownValue = DrawValue(stateInfo);
@@ -29,9 +31,9 @@ public class DrawOutArrowStateMachine : StateMachineBehaviour
       //Debug.Log("ustaad");
     }
 
-    animator.GetComponent<EnemyBowSystem>().isHoldingArrow=isHoldingArrow;
-    animator.GetComponent<EnemyBowSystem>().isDrownOutArrow=isDrownOutArrow;
-    animator.GetComponent<EnemyBowSystem>().drownValue=drownValue;
+    animator.GetComponent<EnemyStaticBow>().isHoldingArrow=isHoldingArrow;
+    animator.GetComponent<EnemyStaticBow>().isDrownOutArrow=isDrownOutArrow;
+    animator.GetComponent<EnemyStaticBow>().drownValue=drownValue;
   }
   public float DrawValue(AnimatorStateInfo stateInfo)
   {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BNG;
 using Unity.VisualScripting;
+using Unity.Mathematics;
 public class Arrow_Custom : MonoBehaviour
 {
     public Rigidbody rb;
@@ -22,6 +23,11 @@ public class Arrow_Custom : MonoBehaviour
             ProjectileObject.StickToObject = true;
             ProjectileObject.enabled = false;
         }
+    }
+    public void InitArrow()
+    {
+        transform.position=Vector3.zero;
+        transform.eulerAngles=Vector3.zero;
     }
     void FixedUpdate()
     {

@@ -77,6 +77,9 @@ public void RotateTowardsOpponent()
     public void InstantiateArrow()
     {
         if(!holdedArrow)
-        holdedArrow = Instantiate(ArrowPrefab,arrowParent);
+        {
+            holdedArrow = Instantiate(ArrowPrefab,arrowParent);
+            holdedArrow.InitArrow();
+        }
     }
 }
