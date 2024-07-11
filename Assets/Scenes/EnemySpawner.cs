@@ -9,8 +9,11 @@ public class EnemySpawner : MonoBehaviour
     public float spawnInterval = 1.0f; // The interval between enemy spawns
     public float spawnRadius = 5.0f; // The maximum distance from the center of the spawner where enemies can spawn
     public float spawnRadiusMin = 1.0f; // The minimum distance from the center of the spawner where enemies can spawn
+    [Space(10)]
+    [Header("Limits")]
     public float minXAngle = -45f; // Minimum X angle in degrees
     public float maxXAngle = 45f; // Maximum X angle in degrees
+    [Space(5)]
     public float minYAngle = 0f; // Minimum Y angle in degrees
     public float maxYAngle = 90f; // Maximum Y angle in degrees
 
@@ -51,7 +54,8 @@ Vector3 GetRandomSpawnPosition()
     float radius = Random.Range(spawnRadiusMin, spawnRadius);
 
     // Calculate the direction vector
-    Vector3 direction = new Vector3(Mathf.Sin(angleY) * Mathf.Cos(angleX), Mathf.Sin(angleY) * Mathf.Sin(angleX), Mathf.Cos(angleY));
+    //Vector3 direction = new Vector3(Mathf.Sin(angleY) * Mathf.Cos(angleX), Mathf.Sin(angleY) * Mathf.Sin(angleX), Mathf.Cos(angleY));
+    Vector3 direction = new Vector3(Mathf.Sin(angleX) * Mathf.Cos(angleY), Mathf.Sin(-angleY) * Mathf.Cos(angleX), Mathf.Cos(angleY));
 
     // Calculate the spawn position
     Vector3 spawnPosition = transform.position + direction * radius;
