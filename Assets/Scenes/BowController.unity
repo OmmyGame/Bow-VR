@@ -173,10 +173,10 @@ MonoBehaviour:
   spawnInterval: 2
   spawnRadius: 20
   spawnRadiusMin: 20
-  minXAngle: -1
-  maxXAngle: 1
-  minYAngle: 0
-  maxYAngle: 1
+  minXAngle: -15.3
+  maxXAngle: 20.6
+  minYAngle: -32.84
+  maxYAngle: 15.5
 --- !u!1 &210402129
 GameObject:
   m_ObjectHideFlags: 0
