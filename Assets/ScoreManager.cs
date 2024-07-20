@@ -21,9 +21,9 @@ public class ScoreManager : MonoBehaviour
     {
         SetHighScore(GamePreference.HighScore);    
     }
-    public void AddScore(int score)
+    public void AddScore(int _score)
     {
-        score += 1;
+        this.score += _score;
         scoreTxt.text = score.ToString();
         if(score>GamePreference.HighScore)
         {

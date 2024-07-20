@@ -176,7 +176,7 @@ MonoBehaviour:
   minXAngle: -15.3
   maxXAngle: 20.6
   minYAngle: -32.84
-  maxYAngle: 15.5
+  maxYAngle: 0.9
 --- !u!1 &210402129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,8 +1596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40270e8e48f488348a5c9e6d67ebc666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScoreTxt: {fileID: 1908004262}
-  scoreTxt: {fileID: 2142332199}
+  highScoreTxt: {fileID: 2142332199}
+  scoreTxt: {fileID: 1908004262}
   score: 0
 --- !u!4 &1427270051
 Transform:
@@ -1961,6 +1961,11 @@ PrefabInstance:
       propertyPath: m_Positions.Array.data[1].z
       value: 0.004651994
       objectReference: {fileID: 0}
+    - target: {fileID: 7387513610969850885, guid: 3b3a577d35f83cd479e4139b02c51002,
+        type: 3}
+      propertyPath: BowForce
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 7387513610969850904, guid: 3b3a577d35f83cd479e4139b02c51002,
         type: 3}
       propertyPath: Grabtype
@@ -2202,7 +2207,7 @@ GameObject:
   - component: {fileID: 1908004263}
   - component: {fileID: 1908004262}
   m_Layer: 5
-  m_Name: High ScoreText (TMP)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2633,7 +2638,7 @@ GameObject:
   - component: {fileID: 2142332200}
   - component: {fileID: 2142332199}
   m_Layer: 5
-  m_Name: ScoreText (TMP)
+  m_Name: High Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2706,8 +2711,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
