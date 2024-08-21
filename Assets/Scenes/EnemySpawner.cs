@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab; // The enemy prefab to spawn
+    public Agent enemyPrefab; // The enemy prefab to spawn
     public float spawnInterval = 1.0f; // The interval between enemy spawns
     public float spawnRadius = 5.0f; // The maximum distance from the center of the spawner where enemies can spawn
     public float spawnRadiusMin = 1.0f; // The minimum distance from the center of the spawner where enemies can spawn
@@ -34,7 +34,8 @@ public class EnemySpawner : MonoBehaviour
             Vector3 spawnPosition = GetRandomSpawnPosition();
 
             // Spawn the enemy at the calculated position
-            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity).Init(PlayerController.Instance.transform);
+
         }
     }
 

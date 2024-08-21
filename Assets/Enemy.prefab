@@ -5012,7 +5012,7 @@ GameObject:
   - component: {fileID: 612912201940020580}
   - component: {fileID: 8971202009475290949}
   - component: {fileID: 5357969217081323519}
-  - component: {fileID: 3888973837113072537}
+  - component: {fileID: -780990441720668104}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -5116,10 +5116,10 @@ MonoBehaviour:
   onDamaged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3888973837113072537}
-        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
-        m_MethodName: OnDie
-        m_Mode: 1
+      - m_Target: {fileID: -780990441720668104}
+        m_TargetAssemblyTypeName: Agent, Assembly-CSharp
+        m_MethodName: OnDamage
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5155,7 +5155,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3888973837113072537
+--- !u!114 &-780990441720668104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5164,15 +5164,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2920561618962350064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57b2f99c20a1f14a8d41ead56991060, type: 3}
+  m_Script: {fileID: 11500000, guid: 01e5c18595c4a6a4c82f4c27712bd0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  damageable: {fileID: 8971202009475290949}
+  damageable: {fileID: 0}
   damage: 10
-  attackDistance: 1
+  chaseDistance: 0
+  attackDistance: 0
   attacking: 0
   isDie: 0
+  health: 0
+  target: {fileID: 0}
 --- !u!1 &8100653689970036323
 GameObject:
   m_ObjectHideFlags: 0
