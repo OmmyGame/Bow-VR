@@ -5169,9 +5169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   damageable: {fileID: 8971202009475290949}
-  damage: 1
-  attackDistance: 5
+  damage: 10
+  attackDistance: 1
   attacking: 0
+  isDie: 0
 --- !u!1 &8100653689970036323
 GameObject:
   m_ObjectHideFlags: 0
