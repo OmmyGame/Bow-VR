@@ -13,7 +13,6 @@ public abstract class Agent : MonoBehaviour, IAgent
     public float attackDistance;
     public bool attacking;
     public bool isDie;
-    public float health;
     public Transform target;
     // /public AnimationCurve animationAmount;
     public StateMachine stateMachine;
@@ -47,20 +46,6 @@ public abstract class Agent : MonoBehaviour, IAgent
         if (isDie) return;
         PlayerController.Instance.TakeDamage(damage);
         Destroy(this.gameObject);
-    }
-    public void OnDamage(Single damage)
-    {
-        health-=damage;
-        if(health<=0)
-        {
-            OnDie();
-        }
-    }
-    public void OnDie()
-    {
-        isDie = true;
-        ScoreManager.instance.AddScore(1);
-        //Destroy(gameObject);
     }
 
     public virtual void Idle()
