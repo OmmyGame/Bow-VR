@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using BNG;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GamePlayManager : MonoBehaviour
 {
@@ -12,10 +14,12 @@ public class GamePlayManager : MonoBehaviour
             Instance = this;
         }
     }
+    public WeaponManager weaponManager;
+
     public void GameOver()
     {
         Debug.Log("Game Over");
         UIManager.instance.GameOver();
-        GameManager.Instance.LoadScene("BowController",3f,true);
+        GameManager.Instance.LoadScene(SceneManager.GetActiveScene().name,3f,true);
     }
 }
