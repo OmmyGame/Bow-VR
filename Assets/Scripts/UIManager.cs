@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
-
+using UnityEngine.SceneManagement;
+using TMPro;
+using Ommy.Prefs;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
@@ -14,15 +16,27 @@ public class UIManager : MonoBehaviour
             instance = this;
         }
     }
+    public GameObject losePanel,gamePanel;
+    public TMP_Text losePanelHighScore;
     public Image healthBar;
     public GameObject loading;
     public void SetHealth(float health)
     {
         healthBar.fillAmount=health;
     }
-
+    public void RestartButton()
+    {
+        GameManager.Instance.LoadScene(SceneManager.GetActiveScene().name,0,true);
+    }
+    public void HomeButton()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void GameOver()
     {   
-        loading.SetActive(true);
+        losePanel.SetActive(true);
+        gamePanel.SetActive(false);
+        losePanelHighScore.text=GamePreference.HighScore.ToString();
+        //loading.SetActive(true);
     }
 }

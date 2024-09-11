@@ -27,5 +27,6 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         GamePlayManager.Instance.GameOver();
+        GameManager.OnDie.Invoke();
     }
 }

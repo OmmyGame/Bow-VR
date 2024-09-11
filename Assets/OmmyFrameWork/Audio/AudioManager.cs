@@ -7,16 +7,10 @@ namespace Ommy.Audio
 
     public enum SFX
     {
-        Reward,
+        Kill,
+        Attack,
         Click,
-        Upgrade, MachineUpgrade,
-        Unlock,
-        BeltUnlock,
-        Spawn,
-        EggDrop,
-        WheatDrop,
-        CornDrop,
-        MilkDrop
+        Spawn
     }//enum end
 
     [System.Serializable]

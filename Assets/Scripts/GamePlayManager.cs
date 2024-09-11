@@ -20,6 +20,5 @@ public class GamePlayManager : MonoBehaviour
     {
         Debug.Log("Game Over");
         UIManager.instance.GameOver();
-        GameManager.Instance.LoadScene(SceneManager.GetActiveScene().name,3f,true);
     }
 }

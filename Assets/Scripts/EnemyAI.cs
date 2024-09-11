@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Ommy.Animation;
+using Ommy.Audio;
 using UnityEngine;
 
 public class EnemyAI : Agent
@@ -13,8 +14,8 @@ public class EnemyAI : Agent
     }
     public override void Chase()
     {
-        transform.position = Vector3.MoveTowards(transform.position, PlayerController.Instance.face.position, speed * Time.deltaTime);
-        transform.LookAt(PlayerController.Instance.face);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        transform.LookAt(target);
     }
     public void OnAnimationEvent(StateMachineEventType stateMachineEventType)
     {
@@ -34,6 +35,7 @@ public class EnemyAI : Agent
         stateMachine.ChangeState(stateMachine.deathState);
         isDie = true;
         ScoreManager.instance.AddScore(1);
+        AudioManager.Instance.PlaySFX(SFX.Kill);
         Destroy(gameObject,1.5f);
     }
     public override void Damage()
@@ -46,6 +48,7 @@ public class EnemyAI : Agent
     }
     public override void Attack()
     {
+        AudioManager.Instance.PlaySFX(SFX.Attack);
         animator.SetTrigger("Attack");
     }
 }

@@ -5,6 +5,7 @@ using UnityEditor;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public List<Agent> enemies;
     public Agent enemyPrefab; // The enemy prefab to spawn
     public float spawnInterval = 1.0f; // The interval between enemy spawns
     public float spawnRadius = 5.0f; // The maximum distance from the center of the spawner where enemies can spawn
@@ -18,7 +19,13 @@ public class EnemySpawner : MonoBehaviour
     public float maxYAngle = 90f; // Maximum Y angle in degrees
 
     private float spawnTimer = 0.0f; // The timer for spawning enemies
-
+    public Transform target;
+    private void OnEnable() {
+        GameManager.OnDie+=OnPlayerDie;
+    }
+    private void OnDisable() {
+        GameManager.OnDie-=OnPlayerDie;
+    }
     void Update()
     {
         // Increment the spawn timer
@@ -34,9 +41,18 @@ public class EnemySpawner : MonoBehaviour
             Vector3 spawnPosition = GetRandomSpawnPosition();
 
             // Spawn the enemy at the calculated position
-            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity).Init(PlayerController.Instance.transform);
-
+            var enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            enemy.Init(target);
+            enemies.Add(enemy);
         }
+    }
+    public void OnPlayerDie()
+    {
+        foreach (var enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+        enabled=false;
     }
 
 Vector3 GetRandomSpawnPosition()

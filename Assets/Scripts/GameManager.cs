@@ -1,14 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ommy.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    private void Awake() {
+    private void Awake() 
+    {
         Instance=this;
     }
+    private void Start() {
+        AudioManager.Instance.StartGame();
+    }
+    public static Action OnDie;
     public void LoadScene(string sceneName,float dely=0, bool restarting=false)
     {
         // Check if the scene is already loaded

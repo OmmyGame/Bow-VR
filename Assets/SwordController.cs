@@ -5,13 +5,35 @@ using UnityEngine;
 
 public class SwordController : MonoBehaviour
 {
-    public float Damage;
-    private void OnCollisionEnter(Collision collision)
+    public float attackForceThreshold;
+    public float damage;
+    
+    private Vector3 previousPosition;
+    private float velocityMagnitude;
+
+    void Start()
     {
-        Damageable d = collision.collider.GetComponent<Damageable>();
-        if (d)
+        previousPosition = transform.position;
+    }
+
+    void Update()
+    {
+        // Calculate velocity based on the change in position
+        Vector3 movement = transform.position - previousPosition;
+        velocityMagnitude = movement.magnitude / Time.deltaTime;
+        previousPosition = transform.position;
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        // Check if the manually calculated velocity exceeds the threshold
+        if (velocityMagnitude > attackForceThreshold)
         {
-            d.DealDamage(Damage);
+            Damageable d = collision.GetComponent<Damageable>();
+            if (d)
+            {
+                d.DealDamage(damage);
+            }
         }
     }
 }
