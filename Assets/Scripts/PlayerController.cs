@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         GamePlayManager.Instance.GameOver();
         GameManager.OnDie?.Invoke();
+        bloodScreenEffect.bloodScreenImage.enabled=false;
     }
     private void OnTriggerStay(Collider other) 
     {

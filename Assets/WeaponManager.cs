@@ -11,11 +11,11 @@ public class WeaponManager : MonoBehaviour
     public Grabbable currentWeapon;
     private void Update() 
     {
-        if(InputBridge.Instance.AButtonDown)
+        if(InputBridge.Instance.RightGripDown)
         {
             ChangeWeapon(sword);
         }
-        if(InputBridge.Instance.BButtonDown)
+        if(InputBridge.Instance.LeftGripDown)
         {
             ChangeWeapon(bow);
         }
@@ -38,7 +38,15 @@ public class WeaponManager : MonoBehaviour
         //currentHand.HeldGrabbable=null;
         grabberL.TryRelease();
         grabberR.TryRelease();
-        currentHand.GrabGrabbable(currentWeapon);
+        if(currentWeapon==bow)
+        {
+            currentHand=grabberL;
+        }
+        else
+        {
+            currentHand=grabberR;
+        }
+        //currentHand.GrabGrabbable(currentWeapon);
         currentHand.GrabGrabbable(currentWeapon);
     }
     public void ChangeHand(Grabber hand)

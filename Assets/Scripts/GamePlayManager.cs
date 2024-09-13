@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using BNG;
+using Ommy.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,10 @@ public class GamePlayManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+    public void Start()
+    {
+        AudioManager.Instance?.StartGame();
     }
     public WeaponManager weaponManager;
 
