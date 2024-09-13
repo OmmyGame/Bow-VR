@@ -12,11 +12,13 @@ public class PlayerController : MonoBehaviour
             Instance = this;
         }
     }
+    public BloodScreenEffect bloodScreenEffect;
     public Transform face;
     public float maxHealth = 100f;
     public float currentHealth = 100f;
     public void TakeDamage(float damage)
     {
+        bloodScreenEffect.ShowBloodScreen();
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -27,6 +29,14 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         GamePlayManager.Instance.GameOver();
-        GameManager.OnDie.Invoke();
+        GameManager.OnDie?.Invoke();
+    }
+    private void OnTriggerStay(Collider other) 
+    {
+        print("player Trigger stay with "+other.name);
+        if(other.gameObject.CompareTag("DeadZone"))
+        {
+            TakeDamage(0.5f);
+        }     
     }
 }
