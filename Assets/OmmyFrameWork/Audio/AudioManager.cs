@@ -10,7 +10,8 @@ namespace Ommy.Audio
         Kill,
         Attack,
         Click,
-        Spawn
+        Spawn,
+        heartBeat
     }//enum end
 
     [System.Serializable]
@@ -124,8 +125,13 @@ namespace Ommy.Audio
         /// <summary>
         /// Call to play specific SFX clip against enum.
         /// </summary>
+        public AudioClip GetSFX(SFX sFX)
+        {
+            var sfxClip=_sfxClips.Find(f=>f.SFX==sFX);
+            return sfxClip.Clip;
+        }
         public void PlaySFX(SFX sfx, float volume = 1f) =>
-            _sfxSource.PlayOneShot(_sfxClips[(int)sfx].Clip, volume);
+            _sfxSource.PlayOneShot(GetSFX(sfx), volume);
 
         /// <summary>
         /// Call to play custom Audio Clip.

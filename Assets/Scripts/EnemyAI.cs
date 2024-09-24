@@ -48,7 +48,7 @@ public class EnemyAI : Agent
     }
     public override void Attack()
     {
-        AudioManager.Instance.PlaySFX(SFX.Attack);
+        AudioManager.Instance.PlaySFX(SFX.Attack,0.5f);
         animator.SetTrigger("Attack");
     }
 }
