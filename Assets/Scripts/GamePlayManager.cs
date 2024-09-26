@@ -23,7 +23,10 @@ public class GamePlayManager : MonoBehaviour
 
     public void GameOver()
     {
+        bool newRecord=ScoreManager.instance.hasNewRecord;
         Debug.Log("Game Over");
-        UIManager.instance.GameOver();
+        if(newRecord) AudioManager.Instance.PlaySFX(SFX.reward);
+        else AudioManager.Instance.PlaySFX(SFX.fail);
+        UIManager.instance.GameOver(newRecord);
     }
 }

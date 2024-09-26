@@ -9,11 +9,18 @@ public class EnemyAI : Agent
 {
     public StateMachineEventListner stateMachineEventListner;
     public Animator animator;
+    public AudioSource voice;
+    public override void Start() 
+    {
+        base.Start();
+        voice.Play();
+    }
     private void OnEnable() {
         stateMachineEventListner.OnEventInvoke.AddListener(OnAnimationEvent);
     }
     public override void Chase()
     {
+        if(!voice.isPlaying)voice.Play();
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         transform.LookAt(target);
     }
@@ -32,6 +39,7 @@ public class EnemyAI : Agent
     }
     public void OnDie()
     {
+        voice.Stop();
         stateMachine.ChangeState(stateMachine.deathState);
         isDie = true;
         ScoreManager.instance.AddScore(1);
@@ -48,7 +56,8 @@ public class EnemyAI : Agent
     }
     public override void Attack()
     {
-        AudioManager.Instance.PlaySFX(SFX.Attack);
+        voice.Stop();
+        AudioManager.Instance.PlaySFX(SFX.Attack,0.5f);
         animator.SetTrigger("Attack");
     }
 }

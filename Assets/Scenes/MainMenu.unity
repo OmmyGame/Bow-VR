@@ -1324,11 +1324,27 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 95967ac7a2391e442be0ef56e35b5dd4, type: 3}
     - target: {fileID: 3409731864355045134, guid: 597a7f9a1c74ad0439b42857c548f14b, type: 3}
       propertyPath: _sfxClips.Array.size
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3409731864355045134, guid: 597a7f9a1c74ad0439b42857c548f14b, type: 3}
       propertyPath: _sfxClips.Array.data[1]._sfx
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409731864355045134, guid: 597a7f9a1c74ad0439b42857c548f14b, type: 3}
+      propertyPath: _sfxClips.Array.data[2]._sfx
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409731864355045134, guid: 597a7f9a1c74ad0439b42857c548f14b, type: 3}
+      propertyPath: _sfxClips.Array.data[3]._sfx
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409731864355045134, guid: 597a7f9a1c74ad0439b42857c548f14b, type: 3}
+      propertyPath: _sfxClips.Array.data[4]._sfx
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409731864355045134, guid: 597a7f9a1c74ad0439b42857c548f14b, type: 3}
+      propertyPath: _sfxClips.Array.data[5]._sfx
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3409731864355045134, guid: 597a7f9a1c74ad0439b42857c548f14b, type: 3}
       propertyPath: _sfxClips.Array.data[0]._clip
@@ -1338,6 +1354,22 @@ PrefabInstance:
       propertyPath: _sfxClips.Array.data[1]._clip
       value: 
       objectReference: {fileID: 8300000, guid: 2eec5295cfd0c2c40af5ef2634cfa684, type: 3}
+    - target: {fileID: 3409731864355045134, guid: 597a7f9a1c74ad0439b42857c548f14b, type: 3}
+      propertyPath: _sfxClips.Array.data[2]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e220a13ad562ca44897f6c4cbde6b05, type: 3}
+    - target: {fileID: 3409731864355045134, guid: 597a7f9a1c74ad0439b42857c548f14b, type: 3}
+      propertyPath: _sfxClips.Array.data[3]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 165337277709bee48804e3a9bd1bf56c, type: 3}
+    - target: {fileID: 3409731864355045134, guid: 597a7f9a1c74ad0439b42857c548f14b, type: 3}
+      propertyPath: _sfxClips.Array.data[4]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 605cc9f73b65c3f4a927678e508e3efd, type: 3}
+    - target: {fileID: 3409731864355045134, guid: 597a7f9a1c74ad0439b42857c548f14b, type: 3}
+      propertyPath: _sfxClips.Array.data[5]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 605cc9f73b65c3f4a927678e508e3efd, type: 3}
     - target: {fileID: 3409731864355045135, guid: 597a7f9a1c74ad0439b42857c548f14b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 827.8143
@@ -5573,7 +5605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3719865058671406942, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: AllowInput
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3719865058671406942, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: JumpInput.Array.data[0]

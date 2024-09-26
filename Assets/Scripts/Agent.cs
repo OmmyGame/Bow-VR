@@ -16,7 +16,7 @@ public abstract class Agent : MonoBehaviour, IAgent
     public Transform target;
     // /public AnimationCurve animationAmount;
     public StateMachine stateMachine;
-    private void Start()
+    public virtual void Start()
     {
         stateMachine=new StateMachine(this);
         stateMachine.Init(stateMachine.chaseState);

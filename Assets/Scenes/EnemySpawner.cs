@@ -50,7 +50,7 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (var enemy in enemies)
         {
-            Destroy(enemy);
+            if(enemy!=null)Destroy(enemy?.gameObject);
         }
         enabled=false;
     }

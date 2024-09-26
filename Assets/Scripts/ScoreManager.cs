@@ -17,6 +17,7 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text highScoreTxt;
     public TMP_Text scoreTxt;
     public int score=0;
+    public bool hasNewRecord;
     private void Start() 
     {
         SetHighScore(GamePreference.HighScore);    
@@ -27,6 +28,7 @@ public class ScoreManager : MonoBehaviour
         scoreTxt.text = score.ToString();
         if(score>GamePreference.HighScore)
         {
+            hasNewRecord = true;
             SetHighScore(score);
         }
     }
