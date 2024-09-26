@@ -133,7 +133,7 @@ namespace BNG {
         }
 
         void FixedUpdate() {
-            rb.linearVelocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
 
@@ -142,7 +142,7 @@ namespace BNG {
             // Do Lever Look
             if (grab != null && grab.BeingHeld) {
 
-                rb.linearVelocity = Vector3.zero;
+                rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
 
                 // Store original rotation to be used with smooth look
@@ -165,7 +165,7 @@ namespace BNG {
             else if (grab != null && !grab.BeingHeld && rb.isKinematic) {
                 transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.identity, Time.deltaTime * SmoothLookSpeed);
 
-                rb.linearVelocity = Vector3.zero;
+                rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
             }
         }

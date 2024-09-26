@@ -4,29 +4,19 @@ using UnityEngine;
 
 public class ExampleRotate : MonoBehaviour
 {
-    public bool useRotation;
-    public bool useX;
-    public bool useY;
-    public bool useZ;
-    public Transform targetY,targetX,targetZ;
+    public Transform target;
     public Vector3 offSet;
     public float speed = 10.0f;
     Vector3 idealEuler;
     public void Update()
     {
-        if (useX) transform.position = new Vector3
-        (
-            useX? (targetX.position+offSet).x : transform.position.x,
-            useY? (targetY.position+offSet).y : transform.position.y,
-            useZ? (targetZ.position+offSet).z : transform.position.z
-        );
+        transform.position = target.position+offSet;
     }
     void LateUpdate()
     {
-        if(!useRotation)return;
         idealEuler.x = transform.eulerAngles.x;
         idealEuler.z = transform.eulerAngles.z;
-        idealEuler.y = targetY.eulerAngles.y;
+        idealEuler.y = target.eulerAngles.y;
         Quaternion qr  = Quaternion.Euler(idealEuler);
         transform.rotation = Quaternion.Lerp(transform.rotation, qr, Time.deltaTime * 5);     
     }

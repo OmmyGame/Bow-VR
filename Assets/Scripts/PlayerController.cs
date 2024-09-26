@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Ommy.Audio;
 using UnityEngine;
 using UnityEngine.TextCore;
 
@@ -27,7 +26,6 @@ public class PlayerController : MonoBehaviour
             Die();
         }
         UIManager.instance.SetHealth(currentHealth / maxHealth);
-        AudioManager.Instance.PlaySFX(SFX.heartBeat);
     }
     public void Die()
     {

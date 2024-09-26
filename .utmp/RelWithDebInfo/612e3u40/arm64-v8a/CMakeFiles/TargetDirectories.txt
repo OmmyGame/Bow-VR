@@ -1,5 +1,0 @@
-D:/Umar's Data/Unity Projects/Github/Bow-VR/.utmp/RelWithDebInfo/612e3u40/arm64-v8a/CMakeFiles/edit_cache.dir
-D:/Umar's Data/Unity Projects/Github/Bow-VR/.utmp/RelWithDebInfo/612e3u40/arm64-v8a/CMakeFiles/rebuild_cache.dir
-D:/Umar's Data/Unity Projects/Github/Bow-VR/.utmp/RelWithDebInfo/612e3u40/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
-D:/Umar's Data/Unity Projects/Github/Bow-VR/.utmp/RelWithDebInfo/612e3u40/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
-D:/Umar's Data/Unity Projects/Github/Bow-VR/.utmp/RelWithDebInfo/612e3u40/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir
