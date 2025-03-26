@@ -252,7 +252,7 @@ namespace BNG {
                 TryGrab();               
             }
             else if(((HoldingItem || RemoteGrabbingItem) && inputCheckRelease()) || ForceRelease) {                
-                TryRelease();
+                if(!fixGrab)TryRelease();
             }
         }
 
@@ -473,7 +473,7 @@ namespace BNG {
 
             return false;
         }
-
+        public bool fixGrab;
         protected virtual float getGrabInput(GrabButton btn) {
             float gripValue = 0;
 
