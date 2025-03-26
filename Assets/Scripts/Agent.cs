@@ -4,93 +4,41 @@ using System.Collections.Generic;
 using BNG;
 using UnityEngine;
 
-public abstract class Agent : MonoBehaviour, IAgent
+public abstract class Agent : MonoBehaviour
 {
     public float speed = 1.0f;
     public Damageable damageable;
     public float damage = 10.0f;
     public float chaseDistance;
     public float attackDistance;
-    public bool attacking;
     public bool isDie;
     public Transform target;
-    // /public AnimationCurve animationAmount;
-    public StateMachine stateMachine;
-    public virtual void Start()
-    {
-        stateMachine=new StateMachine(this);
-        stateMachine.Init(stateMachine.chaseState);
-    }
     public void Init(Transform target)
     {
         this.target=target;
     }
     private void Update()
     {
-        stateMachine.Update();
         StateAssigner();
     }
-    public void StateAssigner()
+    public virtual void StateAssigner()
     {
         if (Vector3.Distance(target.position, transform.position) < attackDistance)
         {
-            stateMachine.ChangeState(stateMachine.attackState);
+           Attack();
         }
         else if (Vector3.Distance(target.position, transform.position) < chaseDistance)
         {
-            stateMachine.ChangeState(stateMachine.chaseState);
+           Chase();
         }
     }
+    public abstract void Chase();
+    public abstract void Death();
+    public abstract void OnDamage(Single damage);
     public virtual void Attack()
     {
         if (isDie) return;
         PlayerController.Instance.TakeDamage(damage);
         Destroy(this.gameObject);
     }
-
-    public virtual void Idle()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public virtual void Petrolling()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public virtual void Flee()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public virtual void Chase()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public virtual void Defend()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public virtual void Damage()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public virtual void Death()
-    {
-        throw new System.NotImplementedException();
-    }
-}
-public interface IAgent
-{
-    public void Idle();
-    public void Petrolling();
-    public void Attack();
-    public void Flee();
-    public void Chase();
-    public void Defend();
-    public void Damage();
-    public void Death();
 }

@@ -10,12 +10,12 @@ public class EnemyAI : Agent
     public StateMachineEventListner stateMachineEventListner;
     public Animator animator;
     public AudioSource voice;
-    public override void Start() 
+    public void Start() 
     {
-        base.Start();
         voice.Play();
     }
-    private void OnEnable() {
+    private void OnEnable() 
+    {
         stateMachineEventListner.OnEventInvoke.AddListener(OnAnimationEvent);
     }
     public override void Chase()
@@ -33,22 +33,17 @@ public class EnemyAI : Agent
             break;
         }
     }
-    public void OnDamage(Single damage)
+    public override void OnDamage(Single damage)
     {
         OnDie();
     }
     public void OnDie()
     {
         voice.Stop();
-        stateMachine.ChangeState(stateMachine.deathState);
         isDie = true;
         ScoreManager.instance.AddScore(1);
         AudioManager.Instance.PlaySFX(SFX.Kill);
         Destroy(gameObject,1.5f);
-    }
-    public override void Damage()
-    {
-        
     }
     public override void Death()
     {
@@ -57,7 +52,7 @@ public class EnemyAI : Agent
     public override void Attack()
     {
         voice.Stop();
-        AudioManager.Instance.PlaySFX(SFX.Attack,0.5f);
+        AudioManager.Instance?.PlaySFX(SFX.Attack,0.5f);
         animator.SetTrigger("Attack");
     }
 }
